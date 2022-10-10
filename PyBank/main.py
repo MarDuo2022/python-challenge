@@ -4,7 +4,7 @@ import csv
 from numpy import average, greater
 from prometheus_client import generate_latest
 
-budgetpath = os.path.join("PyBank","Resources","budget_data.csv")
+budgetpath = os.path.join("./PyBank","Resources","budget_data.csv")
 
 with open(budgetpath, 'r') as budget_data:
     budgetobject = csv.reader(budget_data,delimiter=",")
