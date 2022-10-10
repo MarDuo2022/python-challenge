@@ -61,7 +61,7 @@ middletext=[]
 for n in range(len(uniquelist)):
     middletext.append(f"{uniquelist[n]}: {percentage_vote[n]}% ({count_individual_vote[n]})")
 
-outputpath = os.path.join("PyPoll","analysis","election_output.txt")
+outputpath = os.path.join("./PyPoll","analysis","election_output.txt")
 with open(outputpath,'w') as electionout:
 
 ##USE PRINT
