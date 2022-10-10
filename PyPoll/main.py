@@ -25,14 +25,6 @@ with open(inputpath,'r') as electionfile:
         count_individual_vote.append(0)
     # print (count_individual_vote)
 
-    # for personelected in uniquelist:
-    #         print(personelected)
-    #         print(uniquelist.index(personelected))
-
-#cannot reuse the same 'electiondata' as pointer is already to the bottom
-    # for row in electiondata:
-    #     DOES NOT WORK
-
 #use candidatelist to count vote and adding to the corresponding index for the array above
     for candidate in candidatelist:
         if candidate in uniquelist:
@@ -80,6 +72,7 @@ with open(outputpath,'w') as electionout:
 
 ###THE END###
 
+
 #Appendix
 #???????? WHY f-string does not work????
 ##TRY USING f-string 
@@ -87,3 +80,14 @@ with open(outputpath,'w') as electionout:
 # {"\n".join(str(m) for m in middletext)}\n\
 # {finaltextend}')
 #???????? WHY f-string does not work????
+
+
+#further checkpoints:
+    # for personelected in uniquelist:
+    #         print(personelected)
+    #         print(uniquelist.index(personelected))
+
+#After reading once, 
+#cannot reuse the same 'electiondata' as pointer is already to the bottom
+    # for row in electiondata:
+    #     DOES NOT WORK 2nd time within the 'with open....'
