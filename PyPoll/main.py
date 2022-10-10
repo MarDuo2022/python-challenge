@@ -4,7 +4,8 @@ import csv
 inputpath = os.path.join("./PyPoll","Resources","election_data.csv")
 with open(inputpath,'r') as electionfile:
     electiondata=csv.reader(electionfile,delimiter=",")
-    next(electiondata, None)
+    # next(electiondata, None) #skip header
+    header=next(electiondata) #store header
 
     totalvote = 0
     candidatelist = []

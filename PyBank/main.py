@@ -8,7 +8,8 @@ budgetpath = os.path.join("./PyBank","Resources","budget_data.csv")
 
 with open(budgetpath, 'r') as budget_data:
     budgetobject = csv.reader(budget_data,delimiter=",")
-    next(budgetobject, None) #to remove first row
+    # next(budgetobject, None) #to remove first row
+    header=next(budgetobject) #store header row instead
 
     no_month = 0  #define variable for *The total number of months included in the dataset
     netprofit_loss = 0 #define variable for *The net total amount of "Profit/Losses" over the entire period
