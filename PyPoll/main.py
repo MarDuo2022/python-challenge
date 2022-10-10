@@ -55,7 +55,7 @@ with open(inputpath,'r') as electionfile:
     for n in range(len(uniquelist)):
         if winnerpercent < percentage_vote[n]:
             winnerpercent = percentage_vote[n]
-        print(f"{uniquelist[n]}: {percentage_vote[n]}% ({totalvote})")
+        print(f"{uniquelist[n]}: {percentage_vote[n]}% ({count_individual_vote[n]})")
 
     finaltextend = (f"-------------------------\
     \nWinner: {uniquelist[percentage_vote.index(winnerpercent)]}\
@@ -66,18 +66,10 @@ with open(inputpath,'r') as electionfile:
 #write to the text file
 middletext=[]
 for n in range(len(uniquelist)):
-    middletext.append(f"{uniquelist[n]}: {percentage_vote[n]}% ({totalvote})")
+    middletext.append(f"{uniquelist[n]}: {percentage_vote[n]}% ({count_individual_vote[n]})")
 
 outputpath = os.path.join("PyPoll","analysis","election_output.txt")
 with open(outputpath,'w') as electionout:
-
-#???????? WHY f-string does not work????
-##TRY USING f-string 
-#     electionout.write(print'{finaltextstart}\n\
-# {"\n".join(str(m) for m in middletext)}\n\
-# {finaltextend}')
-#???????? WHY f-string does not work????
-
 
 ##USE PRINT
     electionout.write(finaltextstart)
@@ -85,3 +77,13 @@ with open(outputpath,'w') as electionout:
     electionout.write("\n".join(str(m) for m in middletext))
     electionout.write("\n")
     electionout.write(finaltextend)
+
+###THE END###
+
+#Appendix
+#???????? WHY f-string does not work????
+##TRY USING f-string 
+#     electionout.write(print'{finaltextstart}\n\
+# {"\n".join(str(m) for m in middletext)}\n\
+# {finaltextend}')
+#???????? WHY f-string does not work????
