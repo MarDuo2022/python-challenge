@@ -24,18 +24,18 @@ with open(inputpath,'r') as electionfile:
     count_individual_vote = []
     for a in range(len(uniquelist)):
         count_individual_vote.append(0)
-    # print (count_individual_vote)
+    # print (count_individual_vote) - checked ok on 10/10/2022
 
 #use candidatelist to count vote and adding to the corresponding index for the array above
     for candidate in candidatelist:
         if candidate in uniquelist:
             count_individual_vote[uniquelist.index(candidate)] +=1
-    # print(count_individual_vote)
+    # print(count_individual_vote) - checked ok on 10/10/2022
     
     percentage_vote = [] 
     for percent in count_individual_vote:
         percentage_vote.append(round(percent/totalvote*100,3))
-    # print(percentage_vote)
+    # print(percentage_vote) - checked ok on 10/10/2022
 
 
     finaltextstart = (f"Election Results\n-------------------------\
@@ -74,14 +74,17 @@ with open(outputpath,'w') as electionout:
 ###THE END###
 
 
-#Appendix
-#???????? WHY f-string does not work????
-##TRY USING f-string 
-#     electionout.write(print'{finaltextstart}\n\
-# {"\n".join(str(m) for m in middletext)}\n\
-# {finaltextend}')
-#???????? WHY f-string does not work????
 
+
+
+#Appendix
+
+#???????? WHY f-string does not work????
+#TRY USING f-string 
+    # electionout.write(f'{finaltextstart}\n\
+    #     {"\n".join(str(m) for m in middletext)}\n\
+    #         {finaltextend}')
+#???????? WHY f-string does not work????
 
 #further checkpoints:
     # for personelected in uniquelist:
