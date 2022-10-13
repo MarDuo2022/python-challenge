@@ -4,7 +4,7 @@ import csv
 from numpy import average, greater
 from prometheus_client import generate_latest
 
-budgetpath = os.path.join("./PyBank","Resources","budget_data.csv")
+budgetpath = os.path.join("Resources","budget_data.csv")
 
 with open(budgetpath, 'r') as budget_data:
     budgetobject = csv.reader(budget_data,delimiter=",")
@@ -52,10 +52,6 @@ with open(budgetpath, 'r') as budget_data:
                 d = rownumber -1
 
 
-# print(f"ElectionResults\nBlahBlah\")  
-# the \n to introduce new line in Python
-# \at the end of row indicates code continues next line
-
 finaltext=(f"Financial Analysis\n----------------------------\nTotal Months: {no_month}\nTotal: ${netprofit_loss}\
     \nAverage Change: ${round(averagechange,2)}\nGreatest Increase in Profits: {dateforprofitchange[i]} (${greatestincrease})\
     \nGreatest Decrease in Profits: {dateforprofitchange[d]} (${greatestdecrease})")
@@ -64,11 +60,10 @@ finaltext=(f"Financial Analysis\n----------------------------\nTotal Months: {no
 print(finaltext)    
 
 # export a text file with the results.
-budgetanalysispath = os.path.join("./PyBank","analysis","budget_output.txt")
+budgetanalysispath = os.path.join("analysis","budget_output.txt")
 with open(budgetanalysispath,'w') as budgetout:
     budgetout.write(finaltext)
 
-### Assignment completed on 09/10/2022 MD ###
 
 
 

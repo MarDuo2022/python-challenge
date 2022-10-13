@@ -1,10 +1,9 @@
 import os
 import csv
 
-inputpath = os.path.join("./PyPoll","Resources","election_data.csv")
+inputpath = os.path.join("Resources","election_data.csv")
 with open(inputpath,'r') as electionfile:
     electiondata=csv.reader(electionfile,delimiter=",")
-    # next(electiondata, None) #skip header
     header=next(electiondata) #store header
 
     totalvote = 0
@@ -17,9 +16,7 @@ with open(inputpath,'r') as electionfile:
         candidatelist.append(candidate)
         if candidate not in uniquelist:
             uniquelist.append(candidate)
-    # print(totalvote) #checked to be correct 09/10/2022
-    # print(uniquelist) #checked ok 09/10/2022
-     
+
 #create array [0, 0, ...,0] to count votes for each candidate
     count_individual_vote = []
     for a in range(len(uniquelist)):
@@ -61,10 +58,9 @@ middletext=[]
 for n in range(len(uniquelist)):
     middletext.append(f"{uniquelist[n]}: {percentage_vote[n]}% ({count_individual_vote[n]})")
 
-outputpath = os.path.join("./PyPoll","analysis","election_output.txt")
+outputpath = os.path.join("analysis","election_output.txt")
 with open(outputpath,'w') as electionout:
 
-##USE PRINT
     electionout.write(finaltextstart)
     electionout.write("\n")
     electionout.write("\n".join(str(m) for m in middletext))
@@ -75,23 +71,3 @@ with open(outputpath,'w') as electionout:
 
 
 
-
-
-#Appendix
-
-#???????? WHY f-string does not work????
-#TRY USING f-string 
-    # electionout.write(f'{finaltextstart}\n\
-    #     {"\n".join(str(m) for m in middletext)}\n\
-    #         {finaltextend}')
-#???????? WHY f-string does not work????
-
-#further checkpoints:
-    # for personelected in uniquelist:
-    #         print(personelected)
-    #         print(uniquelist.index(personelected))
-
-#After reading once, 
-#cannot reuse the same 'electiondata' as pointer is already to the bottom
-    # for row in electiondata:
-    #     DOES NOT WORK 2nd time within the 'with open....'
